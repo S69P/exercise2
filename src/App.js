@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MovieComponent from './components/MovieComponent'
 
 /*
 Display a list of movies where each movie contains a list of users that favorited it.
@@ -58,7 +58,7 @@ const users = {
     userName: 'user123',
   },
   4: {
-    id: 3,
+    id: 4,
     name: 'John Doe',
     userName: 'user123',
   },
@@ -102,10 +102,28 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">ReactND - Coding Practice</h1>
+          <h1 className="App-title" >How Popular is Your Favorite Movie?</h1>
         </header>
-        <h2>How Popular is Your Favorite Movie?</h2>
+        <main>
+          {
+            Object.keys(movies).map(
+              key => 
+              {
+                
+                return(
+
+              
+                  <MovieComponent 
+                    key={key}
+                    movie={movies[key]}
+                    profiles={profiles}
+                    users={users} />
+                  
+                )
+              })
+             
+          }
+        </main>
       </div>
     );
   }
